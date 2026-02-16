@@ -28,7 +28,7 @@ class GeminiService {
       return response.text;
     } catch (error) {
       console.error('Gemini Error:', error.message);
-      return "I'm having trouble right now. Please try again.";
+      return "I'm having trouble right now. Please try again later.";
     }
   }
 }
