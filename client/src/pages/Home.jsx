@@ -6,10 +6,10 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-      <nav className="bg-white shadow-sm">
+      <nav className="shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
-            <h1 className="text-2xl font-display font-bold text-gradient">MindfulJournal</h1>
+            <h1 className="text-2xl font-display font-bold text-gradient">MindEase</h1>
             <div className="flex gap-4">
               {isAuthenticated ? (
                 <Link to="/dashboard" className="btn-primary">
@@ -17,10 +17,17 @@ const Home = () => {
                 </Link>
               ) : (
                 <>
-                  <Link to="/login" className="btn-secondary">
+                  <Link
+                    to="/login"
+                    className="btn-secondary hover:text-gray-400 transition"
+                  >
                     Login
                   </Link>
-                  <Link to="/register" className="btn-primary">
+
+                  <Link
+                    to="/register"
+                    className="btn-primary hover:text-gray-400 transition"
+                  >
                     Get Started
                   </Link>
                 </>
@@ -37,6 +44,7 @@ const Home = () => {
             <br />
             <span className="text-gray-800">Journey Starts Here</span>
           </h2>
+
           <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
             Journal your thoughts, track your moods, and chat with an AI companion designed to support your mental health journey.
           </p>
@@ -69,7 +77,10 @@ const Home = () => {
           
           {!isAuthenticated && (
             <div className="mt-12">
-              <Link to="/register" className="btn-primary text-lg px-8 py-3">
+              <Link
+                to="/register"
+                className="btn-primary text-lg px-8 py-3 hover:text-gray-400 transition"
+              >
                 Start Your Journey Today
               </Link>
             </div>

@@ -61,7 +61,7 @@ const DashboardPage = () => {
       <Navbar />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-display font-bold text-gray-900 mb-2">
+          <h1 className="text-3xl font-display font-bold mb-2">
             Welcome back, {user?.name}!
           </h1>
           <p className="text-gray-600">Here's your mental wellness overview</p>
@@ -97,7 +97,10 @@ const DashboardPage = () => {
           <div className="card">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-2xl font-display font-bold">Recent Journals</h2>
-              <Link to="/journal" className="text-primary-600 hover:text-primary-700 font-medium">
+              <Link 
+                to="/journal" 
+                className="text-primary-600 no-underline hover:text-gray-500 font-medium transition"
+              >
                 View All →
               </Link>
             </div>
@@ -105,12 +108,15 @@ const DashboardPage = () => {
             {journals.length > 0 ? (
               <div className="space-y-3">
                 {journals.map((journal) => (
-                  <div key={journal._id} className="border-l-4 border-primary-400 pl-4 py-2">
+                  <div 
+                    key={journal._id} 
+                    className="border-l-4 border-white pl-4 py-2 bg-gray-700 rounded"
+                  >
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-2xl">{getMoodEmoji(journal.mood)}</span>
-                      <h3 className="font-semibold text-gray-900">{journal.title}</h3>
+                      <span className="text-2xl text-white">{getMoodEmoji(journal.mood)}</span>
+                      <h3 className="font-semibold text-white">{journal.title}</h3>
                     </div>
-                    <p className="text-sm text-gray-600 line-clamp-2">{journal.content}</p>
+                    <p className="text-sm text-gray-300 line-clamp-2">{journal.content}</p>
                     <p className="text-xs text-gray-400 mt-1">
                       {new Date(journal.createdAt).toLocaleDateString()}
                     </p>
@@ -125,32 +131,41 @@ const DashboardPage = () => {
           <div className="card">
             <h2 className="text-2xl font-display font-bold mb-4">Quick Actions</h2>
             <div className="space-y-3">
-              <Link to="/journal" className="block p-4 bg-primary-50 hover:bg-primary-100 rounded-lg transition">
+
+              <Link 
+                to="/journal" 
+                className="block p-4 bg-primary-50 rounded-lg border border-white transition transform hover:scale-105"
+              >
                 <h3 className="font-semibold text-primary-800 mb-1">✍️ New Journal Entry</h3>
                 <p className="text-sm text-primary-600">Write about your day and feelings</p>
               </Link>
               
-              <Link to="/chat" className="block p-4 bg-secondary-50 hover:bg-secondary-100 rounded-lg transition">
+              <Link 
+                to="/chat" 
+                className="block p-4 bg-secondary-50 rounded-lg border border-white transition transform hover:scale-105"
+              >
                 <h3 className="font-semibold text-secondary-800 mb-1">💬 Chat with AI</h3>
                 <p className="text-sm text-secondary-600">Talk to your AI companion</p>
               </Link>
               
-              <div className="p-4 bg-accent-50 rounded-lg">
+              <div className="p-4 bg-accent-50 rounded-lg border border-white">
                 <h3 className="font-semibold text-accent-800 mb-1">📊 Mood Statistics</h3>
                 <p className="text-sm text-accent-600 mb-3">Your emotional patterns</p>
                 {stats.length > 0 && (
                   <div className="space-y-2">
                     {stats.slice(0, 3).map((stat) => (
-                      <div key={stat._id} className="flex items-center justify-between text-sm">
-                        <span>
-                          {getMoodEmoji(stat._id)} {stat._id}
-                        </span>
+                      <div 
+                        key={stat._id} 
+                        className="flex items-center justify-between text-sm"
+                      >
+                        <span>{getMoodEmoji(stat._id)} {stat._id}</span>
                         <span className="font-semibold">{stat.count} times</span>
                       </div>
                     ))}
                   </div>
                 )}
               </div>
+
             </div>
           </div>
         </div>
