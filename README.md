@@ -1,4 +1,4 @@
-# 🧠 Mental Health Journal & AI Chatbot
+# 🧠 Mental Health Journal & AI Companion
 
 A full-stack web application for mental wellness featuring digital journaling, mood tracking, and an AI-powered chatbot companion built with React.js, Node.js, MongoDB, and Google Gemini AI.
 
