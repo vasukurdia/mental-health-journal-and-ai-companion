@@ -11,11 +11,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -41,22 +37,30 @@ const Navbar = () => {
           </Link>
 
           <div className="flex items-center gap-6">
-            <Link to="/dashboard" className="text-gradient hover:text-primary-600 font-medium transition">
+
+            <Link to="/dashboard" className="text-gradient font-medium transition hover:text-gray-400">
               Dashboard
             </Link>
-            <Link to="/journal" className="text-gradient hover:text-primary-600 font-medium transition">
+
+            <Link to="/journal" className="text-gradient font-medium transition hover:text-gray-400">
               Journal
             </Link>
-            <Link to="/chat" className="text-gradient hover:text-primary-600 font-medium transition">
+
+            <Link to="/chat" className="text-gradient font-medium transition hover:text-gray-400">
               AI Chat
             </Link>
 
             <div className="flex items-center gap-3 border-l pl-6">
               <span className="text-sm text-blue-500">Hello, {user?.name}</span>
-              <button onClick={handleLogout} className="btn-secondary text-sm text-gradient">
+
+              <button 
+                onClick={handleLogout} 
+                className="btn-secondary text-sm text-gradient hover:text-gray-400"
+              >
                 Logout
               </button>
             </div>
+
           </div>
         </div>
       </div>
