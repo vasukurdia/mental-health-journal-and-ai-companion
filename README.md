@@ -131,7 +131,7 @@ mkdir mental-health-app && cd mental-health-app
 ```bash
 mkdir server && cd server
 npm init -y
-npm install express mongoose dotenv cors bcryptjs jsonwebtoken @google/generative-ai
+npm install express mongoose dotenv cors bcryptjs jsonwebtoken @google/genai
 npm install --save-dev nodemon
 ```
 
