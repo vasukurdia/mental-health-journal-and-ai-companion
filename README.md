@@ -39,7 +39,6 @@ mental-health-app/
 ├── server/                                 # Backend
 │   ├── config/
 │   │   ├── db.js                          # MongoDB configuration
-│   │   └── gemini.js                      # Gemini AI setup
 │   ├── controllers/
 │   │   ├── authController.js              # Authentication logic
 │   │   ├── journalController.js           # Journal CRUD operations
@@ -98,6 +97,10 @@ mental-health-app/
 │   │   │   └── chatService.js
 │   │   ├── hooks/
 │   │   │   └── useAuth.js
+|   |   |   └── useLocalStorage.js
+|   |   ├── utils/
+|   |   |   └── dateFormatter.js
+|   |   |   └── validator.js
 │   │   ├── App.jsx
 │   │   ├── main.jsx
 │   │   └── index.css
@@ -303,7 +306,7 @@ npm run preview # Preview production build
 
 ## 🚀 Deployment
 
-### Backend (Heroku, Railway, etc.)
+### Backend (Render,Heroku, Railway, etc.)
 1. Set environment variables
 2. Use MongoDB Atlas for production
 3. Configure CORS for production frontend URL
@@ -323,6 +326,7 @@ Contributions, issues, and feature requests are welcome!
 
 ## 👨‍💻 Developer
 
+**Vasu Kurdia**
 Created with ❤️ for mental health awareness and support.
 
 ## 📞 Support
