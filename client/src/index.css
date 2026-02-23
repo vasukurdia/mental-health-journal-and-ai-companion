@@ -1,13 +1,9 @@
 @import "tailwindcss";
 
-/* index.css */
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(to top, #172554, #020617); /* blue-950 → #172554, slate-950 → #020617 */
-  color: white; /* text readable rahe */
+  background: linear-gradient(to top, #172554, #020617);
+  color: white;
   font-family: sans-serif;
 }
-
-
-

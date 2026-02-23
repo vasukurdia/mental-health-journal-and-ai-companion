@@ -11,7 +11,6 @@ const JournalPage = () => {
   const [showForm, setShowForm] = useState(false);
   const [editingJournal, setEditingJournal] = useState(null);
 
-  // 🔥 Form section ka reference
   const formRef = useRef(null);
 
   useEffect(() => {
@@ -70,7 +69,6 @@ const JournalPage = () => {
     }
   };
 
-  // 🔥 Edit click → form open + smooth scroll
   const handleEdit = (journal) => {
     setEditingJournal(journal);
     setShowForm(true);

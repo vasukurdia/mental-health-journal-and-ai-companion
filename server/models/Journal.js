@@ -34,7 +34,6 @@ const journalSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// Index for faster queries
 journalSchema.index({ user: 1, createdAt: -1 });
 
 module.exports = mongoose.model('Journal', journalSchema);

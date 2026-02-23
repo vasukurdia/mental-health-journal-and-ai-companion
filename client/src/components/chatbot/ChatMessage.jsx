@@ -11,10 +11,8 @@ const ChatMessage = ({ message }) => {
           : 'bg-gray-100 text-gray-900'
       }`}>
         {isUser ? (
-          // User message - plain text
           <p className="whitespace-pre-wrap">{message.content}</p>
         ) : (
-          // AI message - with markdown
           <div className="markdown-content">
             <ReactMarkdown
               components={{

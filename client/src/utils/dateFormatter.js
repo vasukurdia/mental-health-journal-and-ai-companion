@@ -1,4 +1,3 @@
-// Format date for display
 export const formatDate = (date) => {
   return new Date(date).toLocaleDateString('en-US', {
     weekday: 'long',
@@ -8,12 +7,10 @@ export const formatDate = (date) => {
   });
 };
 
-// Format date for input fields
 export const formatDateForInput = (date) => {
   return new Date(date).toISOString().split('T')[0];
 };
 
-// Get relative time (e.g., "2 hours ago")
 export const getRelativeTime = (date) => {
   const now = new Date();
   const past = new Date(date);
@@ -27,7 +24,6 @@ export const getRelativeTime = (date) => {
   return formatDate(date);
 };
 
-// Check if date is today
 export const isToday = (date) => {
   const today = new Date();
   const checkDate = new Date(date);
@@ -35,7 +31,6 @@ export const isToday = (date) => {
   return today.toDateString() === checkDate.toDateString();
 };
 
-// Get week start and end dates
 export const getWeekRange = () => {
   const now = new Date();
   const dayOfWeek = now.getDay();

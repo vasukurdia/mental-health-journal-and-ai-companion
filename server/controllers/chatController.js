@@ -1,9 +1,6 @@
 const ChatHistory = require('../models/ChatHistory');
 const geminiService = require('../services/geminiService');
 
-// @desc    Send message to chatbot
-// @route   POST /api/chat/message
-// @access  Private
 const sendMessage = async (req, res) => {
   try {
     const { message } = req.body;
@@ -12,7 +9,6 @@ const sendMessage = async (req, res) => {
       return res.status(400).json({ message: 'Message is required' });
     }
 
-    // Get or create chat history for user
     let chatHistory = await ChatHistory.findOne({ user: req.user._id });
     
     if (!chatHistory) {
@@ -22,25 +18,20 @@ const sendMessage = async (req, res) => {
       });
     }
 
-    // Add user message to history
     chatHistory.messages.push({
       role: 'user',
       content: message
     });
 
-    // Update last active timestamp
     chatHistory.lastActive = Date.now();
 
-    // Generate AI response (simple, without conversation history to avoid issues)
     const aiResponse = await geminiService.generateResponse(message);
 
-    // Add assistant response to history
     chatHistory.messages.push({
       role: 'assistant',
       content: aiResponse
     });
 
-    // Save chat history
     await chatHistory.save();
 
     res.json({
@@ -60,9 +51,6 @@ const sendMessage = async (req, res) => {
   }
 };
 
-// @desc    Get chat history
-// @route   GET /api/chat/history
-// @access  Private
 const getChatHistory = async (req, res) => {
   try {
     const chatHistory = await ChatHistory.findOne({ user: req.user._id });
@@ -91,9 +79,6 @@ const getChatHistory = async (req, res) => {
   }
 };
 
-// @desc    Clear chat history
-// @route   DELETE /api/chat/history
-// @access  Private
 const clearChatHistory = async (req, res) => {
   try {
     await ChatHistory.deleteOne({ user: req.user._id });

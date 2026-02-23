@@ -37,7 +37,6 @@ const ChatbotPage = () => {
   const handleSendMessage = async (message) => {
     if (!message.trim()) return;
 
-    // Add user message immediately
     const userMessage = {
       role: 'user',
       content: message,
@@ -49,7 +48,6 @@ const ChatbotPage = () => {
     try {
       const response = await chatService.sendMessage(message);
       
-      // Add assistant message
       const assistantMessage = {
         role: 'assistant',
         content: response.data.assistantMessage,
@@ -58,7 +56,6 @@ const ChatbotPage = () => {
       setMessages(prev => [...prev, assistantMessage]);
     } catch (error) {
       toast.error('Failed to send message');
-      // Remove user message on error
       setMessages(prev => prev.filter(m => m !== userMessage));
     } finally {
       setLoading(false);

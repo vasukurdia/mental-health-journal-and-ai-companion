@@ -1,8 +1,5 @@
 const Journal = require('../models/Journal');
 
-// @desc    Get all journals for user
-// @route   GET /api/journals
-// @access  Private
 const getJournals = async (req, res) => {
   try {
     const journals = await Journal.find({ user: req.user._id })
@@ -18,9 +15,6 @@ const getJournals = async (req, res) => {
   }
 };
 
-// @desc    Get single journal
-// @route   GET /api/journals/:id
-// @access  Private
 const getJournal = async (req, res) => {
   try {
     const journal = await Journal.findById(req.params.id);
@@ -29,7 +23,6 @@ const getJournal = async (req, res) => {
       return res.status(404).json({ message: 'Journal not found' });
     }
 
-    // Make sure user owns journal
     if (journal.user.toString() !== req.user._id.toString()) {
       return res.status(401).json({ message: 'Not authorized' });
     }
@@ -43,9 +36,6 @@ const getJournal = async (req, res) => {
   }
 };
 
-// @desc    Create new journal
-// @route   POST /api/journals
-// @access  Private
 const createJournal = async (req, res) => {
   try {
     const { title, content, mood, tags, isPrivate } = req.body;
@@ -68,9 +58,6 @@ const createJournal = async (req, res) => {
   }
 };
 
-// @desc    Update journal
-// @route   PUT /api/journals/:id
-// @access  Private
 const updateJournal = async (req, res) => {
   try {
     let journal = await Journal.findById(req.params.id);
@@ -79,7 +66,6 @@ const updateJournal = async (req, res) => {
       return res.status(404).json({ message: 'Journal not found' });
     }
 
-    // Make sure user owns journal
     if (journal.user.toString() !== req.user._id.toString()) {
       return res.status(401).json({ message: 'Not authorized' });
     }
@@ -99,9 +85,6 @@ const updateJournal = async (req, res) => {
   }
 };
 
-// @desc    Delete journal
-// @route   DELETE /api/journals/:id
-// @access  Private
 const deleteJournal = async (req, res) => {
   try {
     const journal = await Journal.findById(req.params.id);
@@ -110,7 +93,6 @@ const deleteJournal = async (req, res) => {
       return res.status(404).json({ message: 'Journal not found' });
     }
 
-    // Make sure user owns journal
     if (journal.user.toString() !== req.user._id.toString()) {
       return res.status(401).json({ message: 'Not authorized' });
     }
@@ -126,9 +108,6 @@ const deleteJournal = async (req, res) => {
   }
 };
 
-// @desc    Get mood statistics
-// @route   GET /api/journals/stats/mood
-// @access  Private
 const getMoodStats = async (req, res) => {
   try {
     const stats = await Journal.aggregate([

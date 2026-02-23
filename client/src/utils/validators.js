@@ -1,10 +1,8 @@
-// Email validation
 export const validateEmail = (email) => {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
 };
 
-// Password validation
 export const validatePassword = (password) => {
   if (password.length < 6) {
     return { valid: false, message: 'Password must be at least 6 characters' };
@@ -12,7 +10,6 @@ export const validatePassword = (password) => {
   return { valid: true, message: '' };
 };
 
-// Name validation
 export const validateName = (name) => {
   if (name.trim().length < 2) {
     return { valid: false, message: 'Name must be at least 2 characters' };
@@ -23,7 +20,6 @@ export const validateName = (name) => {
   return { valid: true, message: '' };
 };
 
-// Journal title validation
 export const validateJournalTitle = (title) => {
   if (title.trim().length === 0) {
     return { valid: false, message: 'Title is required' };
@@ -34,7 +30,6 @@ export const validateJournalTitle = (title) => {
   return { valid: true, message: '' };
 };
 
-// Journal content validation
 export const validateJournalContent = (content) => {
   if (content.trim().length === 0) {
     return { valid: false, message: 'Content is required' };
@@ -45,7 +40,6 @@ export const validateJournalContent = (content) => {
   return { valid: true, message: '' };
 };
 
-// Form validation helper
 export const validateForm = (formData, rules) => {
   const errors = {};
   
