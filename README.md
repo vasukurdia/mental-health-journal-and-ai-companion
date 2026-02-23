@@ -327,7 +327,6 @@ Contributions, issues, and feature requests are welcome!
 ## 👨‍💻 Developer
 
 **Vasu Kurdia**
-
 Created with ❤️ for mental health awareness and support.
 
 ## 📞 Support
