@@ -318,7 +318,7 @@ npm run preview # Preview production build
 
 ## 📄 License
 
-MIT License - feel free to use this project for learning and development.
+This project is **open-source** and free to use.
 
 ## 🤝 Contributing
 
