@@ -36,34 +36,34 @@ A full-stack web application for mental wellness featuring digital journaling, m
 
 ```
 mental-health-app/
-├── server/                                 # Backend
+├── server/
 │   ├── config/
-│   │   ├── db.js                          # MongoDB configuration
+│   │   ├── db.js
 │   ├── controllers/
-│   │   ├── authController.js              # Authentication logic
-│   │   ├── journalController.js           # Journal CRUD operations
-│   │   └── chatController.js              # Chatbot logic
+│   │   ├── authController.js
+│   │   ├── journalController.js
+│   │   └── chatController.js
 │   ├── middleware/
-│   │   ├── auth.js                        # JWT authentication
-│   │   └── errorHandler.js                # Error handling
+│   │   ├── auth.js
+│   │   └── errorHandler.js
 │   ├── models/
-│   │   ├── User.js                        # User schema
-│   │   ├── Journal.js                     # Journal schema
-│   │   └── ChatHistory.js                 # Chat schema
+│   │   ├── User.js
+│   │   ├── Journal.js
+│   │   └── ChatHistory.js
 │   ├── routes/
-│   │   ├── authRoutes.js                  # Auth endpoints
-│   │   ├── journalRoutes.js               # Journal endpoints
-│   │   └── chatRoutes.js                  # Chat endpoints
+│   │   ├── authRoutes.js
+│   │   ├── journalRoutes.js
+│   │   └── chatRoutes.js
 │   ├── services/
-│   │   └── geminiService.js               # AI service
+│   │   └── geminiService.js
 │   ├── utils/
-│   │   └── tokenGenerator.js              # JWT utilities
-│   ├── .env                               # Environment variables
+│   │   └── tokenGenerator.js
+│   ├── .env
 │   ├── .gitignore
 │   ├── package.json
-│   └── server.js                          # Entry point
+│   └── server.js
 │
-├── client/                                # Frontend
+├── client/
 │   ├── src/
 │   │   ├── components/
 │   │   │   ├── auth/
