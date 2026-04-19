@@ -9,19 +9,43 @@ const Login = () => {
     password: "",
   });
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validation
+    if (!formData.email || !formData.password) {
+      toast.error("Please fill in all fields");
+      return;
+    }
+
     setLoading(true);
+    setError("");
 
     try {
       await login(formData);
-      toast.success("Welcome back!");
+      toast.success("Welcome back! 🎉");
       navigate("/dashboard");
-    } catch (error) {
-      toast.error(error.response?.data?.message || "Login failed");
+    } catch (err) {
+      console.error("Login error:", err);
+      
+      // Get error message
+      const errorMessage = err.response?.data?.message || "Login failed. Please try again.";
+      
+      // Show user-friendly error messages
+      if (errorMessage.includes("Invalid")) {
+        toast.error("❌ Incorrect email or password");
+        setError("Please check your credentials and try again");
+      } else if (err.response?.status === 500) {
+        toast.error("⚠️ Server error. Please try again later");
+        setError("Something went wrong on our end");
+      } else {
+        toast.error(errorMessage);
+        setError(errorMessage);
+      }
     } finally {
       setLoading(false);
     }
@@ -32,6 +56,8 @@ const Login = () => {
       ...formData,
       [e.target.name]: e.target.value,
     });
+    // Clear error when user starts typing
+    if (error) setError("");
   };
 
   return (
@@ -45,6 +71,18 @@ const Login = () => {
             </h2>
             <p className="text-gray-600">Sign in to continue your journey</p>
           </div>
+
+          {/* Error Alert */}
+          {error && (
+            <div className="bg-red-50 border border-red-300 text-red-700 px-4 py-3 rounded-lg mb-6 animate-fade-in">
+              <div className="flex items-center">
+                <svg className="w-5 h-5 mr-2 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                </svg>
+                <p className="text-sm font-medium">{error}</p>
+              </div>
+            </div>
+          )}
 
           {/* Login Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -93,7 +131,7 @@ const Login = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full py-2 border border-blue-700 rounded-lg text-white bg-blue-600 hover:bg-blue-700 active:scale-[0.98] transition font-semibold"
+              className="w-full py-2 border border-blue-700 rounded-lg text-white bg-blue-600 hover:bg-blue-700 active:scale-[0.98] transition font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={loading}
             >
               {loading ? (
