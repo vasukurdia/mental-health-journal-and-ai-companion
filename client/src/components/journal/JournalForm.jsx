@@ -18,7 +18,6 @@ const JournalForm = ({ onSubmit, initialData, onCancel }) => {
     content: '',
     mood: 'neutral',
     tags: [],
-    isPrivate: true
   });
 
   useEffect(() => {
@@ -28,7 +27,6 @@ const JournalForm = ({ onSubmit, initialData, onCancel }) => {
         content: initialData.content || '',
         mood: initialData.mood || 'neutral',
         tags: initialData.tags || [],
-        isPrivate: initialData.isPrivate ?? true
       });
     }
   }, [initialData]);
@@ -95,19 +93,6 @@ const JournalForm = ({ onSubmit, initialData, onCancel }) => {
             required
           />
           <p className="text-xs text-gray-400 mt-1">{formData.content.length} / 5000 characters</p>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <input
-            type="checkbox"
-            id="isPrivate"
-            checked={formData.isPrivate}
-            onChange={(e) => setFormData({ ...formData, isPrivate: e.target.checked })}
-            className="accent-blue-500"
-          />
-          <label htmlFor="isPrivate" className="text-sm text-gray-300">
-            Keep this entry private
-          </label>
         </div>
 
         <div className="flex gap-4 pt-2">
