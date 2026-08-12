@@ -59,7 +59,7 @@ const JournalForm = ({ onSubmit, initialData, onCancel }) => {
 
         <div>
           <label className="block text-sm text-gray-300 mb-2">How are you feeling?</label>
-          <div className="grid grid-cols-3 gap-3">
+          + <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {MOODS.map((mood) => (
               <button
                 key={mood.value}
