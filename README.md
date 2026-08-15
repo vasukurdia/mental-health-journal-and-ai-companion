@@ -316,6 +316,12 @@ npm run preview # Preview production build
 2. Deploy `dist` folder
 3. Set `VITE_API_URL` to production backend URL
 
+## 📸 Screenshots
+
+> ![Home Page](./images/home-page.jpg)
+> ![Login Page](./images/login-page.jpg)
+> ![Signup Page](./images/signup-page.jpg)
+
 ## 📄 License
 
 This project is **open-source** and free to use.
