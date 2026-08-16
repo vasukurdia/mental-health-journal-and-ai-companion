@@ -321,6 +321,7 @@ npm run preview # Preview production build
 > ![Home Page](./images/home-page.jpg)
 > ![Login Page](./images/login-page.jpg)
 > ![Signup Page](./images/signup-page.jpg)
+> ![Dashboard Page](./images/dashboard-page.jpg)
 
 ## 📄 License
 
